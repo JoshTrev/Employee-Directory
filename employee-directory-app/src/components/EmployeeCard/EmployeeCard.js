@@ -4,7 +4,7 @@ import "./EmployeeCard.css";
 function EmployeeCard() {
 	return (
 		<h1>
-			<p>Test!</p>
+			<p>EmployeeCard Test!</p>
 		</h1>
 	);
 }
