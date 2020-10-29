@@ -1,11 +1,22 @@
 import React from "react";
 import "./SearchBar.css";
 
-function SearchBar() {
+function SearchBar(props) {
 	return (
-		<h1>
-			<p>SearchBar Test!</p>
-		</h1>
+		<>
+		<input
+          onChange={props.handleInputChange}
+          value={props.search}
+          name="search"
+          type="text"
+          className="form-control"
+          placeholder="Search Employees"
+          id="search"
+        />
+		<button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
+          Search
+        </button>
+		</>
 	);
 }
 
