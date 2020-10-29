@@ -15,7 +15,6 @@ class App extends Component {
   handleInputChange = event => {
     const { name, value } = event.target;
 
-    // Sort Order (sets state of "sort order")
     this.setState({
       [name]: value
     });
@@ -24,12 +23,23 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
+    // Filter the employee list by the search term.
     var filteredEmployees = this.state.employees.filter(person => person.firstName.includes(this.state.search));
 
-    console.log("filteredEmployees");
-    console.log(filteredEmployees);
+    // Sort employees alphabetically by Ascending order
+    if (this.state.sortOrder === "ASC") {
+      var filteredEmployeesASC = filteredEmployees.sort();
+      console.log("filteredEmployeesASC");
+      console.log(filteredEmployeesASC);
+    }
+    // Sort employees alphabetically by Descending order
+    else if (this.state.sortOrder === "DES") {
+      var filteredEmployeesDES = filteredEmployees.sort().reverse();
+      console.log("filteredEmployeesDES");
+      console.log(filteredEmployeesDES);
+    }
 
-    // Reset the search after the user has pressed the search button
+    // Reset the search after the user has pressed the search button.
     this.setState({
       search: ""
     });
