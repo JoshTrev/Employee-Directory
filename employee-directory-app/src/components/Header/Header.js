@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 
-function Header() {
+function Header(props) {
 	return (
 		<h1>
 			<p>Header Test!</p>
