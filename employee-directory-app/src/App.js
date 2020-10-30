@@ -9,7 +9,8 @@ class App extends Component {
   state = {
     employees: employees,
     search: "",
-    sortOrder: "ASC"
+    sortOrder: "ASC",
+    orderedEmployees: []
   }
 
   handleInputChange = event => {
@@ -24,24 +25,27 @@ class App extends Component {
     event.preventDefault();
 
     // Filter the employee list by the search term.
-    var filteredEmployees = this.state.employees.filter(person => person.firstName.includes(this.state.search));
+    var filteredEmployees = this.state.employees.filter(person => person.name.includes(this.state.search));
+
+    var orderedEmployees = [];
 
     // Sort employees alphabetically by Ascending order
     if (this.state.sortOrder === "ASC") {
-      var filteredEmployeesASC = filteredEmployees.sort();
+      orderedEmployees = filteredEmployees.sort();
       console.log("filteredEmployeesASC");
-      console.log(filteredEmployeesASC);
+      console.log(orderedEmployees);
     }
     // Sort employees alphabetically by Descending order
     else if (this.state.sortOrder === "DES") {
-      var filteredEmployeesDES = filteredEmployees.sort().reverse();
+      orderedEmployees = filteredEmployees.sort().reverse();
       console.log("filteredEmployeesDES");
-      console.log(filteredEmployeesDES);
+      console.log(orderedEmployees);
     }
 
     // Reset the search after the user has pressed the search button.
     this.setState({
-      search: ""
+      search: "",
+      orderedEmployees: orderedEmployees
     });
   }
 
@@ -57,7 +61,16 @@ class App extends Component {
           handleInputChange={this.handleInputChange}
         />
         <FormLabel />
-        <EmployeeCard />
+        {this.state.orderedEmployees.map(person =>
+          <EmployeeCard
+            key={person.id}
+            id={person.id}
+            name={person.name}
+            phone={person.phone}
+            email={person.email}
+            dateOfBirth={person.dateOfBirth}
+          />
+        )}
       </>
     );
   }

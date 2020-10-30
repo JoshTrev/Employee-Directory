@@ -1,17 +1,23 @@
 [
     {
       "id": 1,
-      "firstName": "AbleA",
-      "lastName": "Number1"
+      "name": "Able A",
+      "phone": "494-292-1516",
+      "email": "Able@email.com",
+      "dateOfBirth": "04/24/2020"
     },
     {
       "id": 2,
-      "firstName": "BonniA",
-      "lastName": "Number2"
+      "name": "Bonni A",
+      "phone": "252-116-1677",
+      "email": "Bonni@email.com",
+      "dateOfBirth": "05/14/1990"
     },
     {
       "id": 3,
-      "firstName": "CamelotA",
-      "lastName": "Number3"
+      "name": "Camelot A",
+      "phone": "756-124-6346",
+      "email": "Camelot@email.com",
+      "dateOfBirth": "09/25/2000"
     }
   ]

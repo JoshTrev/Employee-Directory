@@ -1,4 +1,21 @@
-p {
-    background: blue;
-    color: white;
+#img {
+    clear: left;
+    font-size: 2rem;
+    float: left;
+}
+#name {
+    font-size: 2rem;
+    float: left;
+}
+#phone {
+    font-size: 2rem;
+    float: left;
+}
+#email {
+    font-size: 2rem;
+    float: left;
+}
+#dateOfBirth {
+    font-size: 2rem;
+    float: left;
 }
