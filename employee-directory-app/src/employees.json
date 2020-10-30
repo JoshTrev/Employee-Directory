@@ -1,23 +1,58 @@
 [
     {
       "id": 1,
-      "name": "Able A",
+      "name": "SpongeBob SquarePants",
+      "image": "./assets/img/SpongeBobSquarePants.png",
       "phone": "494-292-1516",
-      "email": "Able@email.com",
+      "email": "SpongeBob@email.com",
       "dateOfBirth": "04/24/2020"
     },
     {
       "id": 2,
-      "name": "Bonni A",
-      "phone": "252-116-1677",
-      "email": "Bonni@email.com",
-      "dateOfBirth": "05/14/1990"
+      "name": "Patrick Star",
+      "image": "./assets/img/PatrickStar.png",
+      "phone": "494-292-1516",
+      "email": "SpongeBob@email.com",
+      "dateOfBirth": "04/24/2020"
     },
     {
       "id": 3,
-      "name": "Camelot A",
-      "phone": "756-124-6346",
-      "email": "Camelot@email.com",
-      "dateOfBirth": "09/25/2000"
+      "name": "Squidward Tenticles",
+      "image": "./assets/img/SquidwardTenticles.png",
+      "phone": "494-292-1516",
+      "email": "SpongeBob@email.com",
+      "dateOfBirth": "04/24/2020"
+    },
+    {
+      "id": 4,
+      "name": "Mr. Krabs",
+      "image": "./assets/img/MrKrabs.png",
+      "phone": "494-292-1516",
+      "email": "SpongeBob@email.com",
+      "dateOfBirth": "04/24/2020"
+    },
+    {
+      "id": 5,
+      "name": "Sandy Cheeks",
+      "image": "./assets/img/SandyCheeks.png",
+      "phone": "494-292-1516",
+      "email": "SpongeBob@email.com",
+      "dateOfBirth": "04/24/2020"
+    },
+    {
+      "id": 6,
+      "name": "Plankton",
+      "image": "./assets/img/Plankton.png",
+      "phone": "494-292-1516",
+      "email": "SpongeBob@email.com",
+      "dateOfBirth": "04/24/2020"
+    },
+    {
+      "id": 7,
+      "name": "Gary the Snail",
+      "image": "./assets/img/GaryTheSnail.png",
+      "phone": "494-292-1516",
+      "email": "SpongeBob@email.com",
+      "dateOfBirth": "04/24/2020"
     }
   ]

@@ -5,7 +5,7 @@ function FormLabel(props) {
 	return (
 		<div>
 			<div id="imgColumn" className="border">
-				Img Goes Here
+				Image
 			</div>
 			<div onClick={props.handleFormSubmitName} id="nameColumn" className="border">
 				Name

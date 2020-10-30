@@ -169,6 +169,7 @@ class App extends Component {
             key={person.id}
             id={person.id}
             name={person.name}
+            image={person.image}
             phone={person.phone}
             email={person.email}
             dateOfBirth={person.dateOfBirth}
