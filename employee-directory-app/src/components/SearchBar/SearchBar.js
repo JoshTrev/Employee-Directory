@@ -10,7 +10,7 @@ function SearchBar(props) {
           name="search"
           type="text"
           className="form-control"
-          placeholder={props.placeholder}
+          placeholder="Search Employees"
           id="search"
         />
 		<button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">

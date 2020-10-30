@@ -11,11 +11,10 @@ class App extends Component {
     search: "",
     sortOrderASC: true,
     orderedEmployees: [],
-    sortName: true,
-    sortPhone: false,
-    sortEmail: false,
-    sortDOB: false,
-    placeholder: "Search Employees by Name"
+    sortNameASC: true,
+    sortPhoneASC: true,
+    sortEmailASC: true,
+    sortDOBASC: true
   }
 
   handleInputChange = event => {
@@ -29,45 +28,25 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    var filteredEmployees = [];
+    // Searching all employees by name
+    var filteredEmployeesName = this.state.employees.filter(person => person.name.includes(this.state.search));
 
-    if (this.state.sortName){
-      filteredEmployees = this.state.employees.filter(person => person.name.includes(this.state.search));
-    }
-    else if (this.state.sortPhone){
-      filteredEmployees = this.state.employees.filter(person => person.phone.includes(this.state.search));
-    }
-    else if (this.state.sortEmail){
-      filteredEmployees = this.state.employees.filter(person => person.email.includes(this.state.search));
-    }
-    else if (this.state.sortDOB){
-      filteredEmployees = this.state.employees.filter(person => person.dateOfBirth.includes(this.state.search));
-    }
+    // Searching all employees by phone number
+    var filteredEmployeesPhone = this.state.employees.filter(person => person.phone.includes(this.state.search));
 
-    var orderedEmployees = [];
+    // Searching all employees by email
+    var filteredEmployeesEmail = this.state.employees.filter(person => person.email.includes(this.state.search));
 
-    // Sort employees alphabetically by Ascending order
-    if (this.state.sortOrderASC === true) {
-      orderedEmployees = filteredEmployees.sort();
-      console.log("filteredEmployeesASC");
-      console.log(orderedEmployees);
-    }
-    // Sort employees alphabetically by Descending order
-    else if (this.state.sortOrderASC === false) {
-      orderedEmployees = filteredEmployees.sort().reverse();
-      console.log("filteredEmployeesDES");
-      console.log(orderedEmployees);
-    }
+    // Searching all employees by date of birth
+    var filteredEmployeesDOB = this.state.employees.filter(person => person.dateOfBirth.includes(this.state.search));
 
-    console.log(this.state.sortName);
-    console.log(this.state.sortPhone);
-    console.log(this.state.sortEmail);
-    console.log(this.state.sortDOB);
+    // Adding up all the searches together using "new Set" to avoid duplications
+    var newArrayOfEmployees = [...new Set([...filteredEmployeesName,...filteredEmployeesPhone,...filteredEmployeesEmail,...filteredEmployeesDOB])]
 
     // Reset the search after the user has pressed the search button.
     this.setState({
       search: "",
-      orderedEmployees: orderedEmployees
+      orderedEmployees: newArrayOfEmployees
     });
   }
 
@@ -75,73 +54,97 @@ class App extends Component {
   handleFormSubmitName = event => {
     event.preventDefault();
 
-    var newOrderedEmployees = [];
+    // If we are sorting names by Ascending Order, sort by "name" then switch order variable so we can search by Decending order next click
+    if (this.state.sortNameASC){
+      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.name > b.name) ? 1: -1).reverse();
 
-    newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+      this.setState({
+        orderedEmployees: newOrderedEmployees,
+        sortNameASC: false,
+      });
+    }else{
+      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.name > b.name) ? 1: -1);
 
-    var placeholderText = "Search Employees by Name";
+      this.setState({
+        orderedEmployees: newOrderedEmployees,
+        sortNameASC: true,
+      });
+    }
 
     this.setState({
       orderedEmployees: newOrderedEmployees,
-      sortName: true,
-      sortPhone: false,
-      sortEmail: false,
-      sortDOB: false,
-      placeholder: placeholderText
     });
   }
   handleFormSubmitPhone = event => {
     event.preventDefault();
 
-    var newOrderedEmployees = [];
+    // If we are sorting names by Ascending Order, sort by "phone" then switch order variable so we can search by Decending order next click
+    if (this.state.sortPhoneASC){
+      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.phone > b.phone) ? 1: -1).reverse();
 
-    newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+      this.setState({
+        orderedEmployees: newOrderedEmployees,
+        sortPhoneASC: false,
+      });
+    }else{
+      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.phone > b.phone) ? 1: -1);
 
-    var placeholderText = "Search Employees by Phone Number";
+      this.setState({
+        orderedEmployees: newOrderedEmployees,
+        sortPhoneASC: true,
+      });
+    }
 
     this.setState({
       orderedEmployees: newOrderedEmployees,
-      sortName: false,
-      sortPhone: true,
-      sortEmail: false,
-      sortDOB: false,
-      placeholder: placeholderText
     });
   }
   handleFormSubmitEmail = event => {
     event.preventDefault();
 
-    var newOrderedEmployees = [];
+    // If we are sorting names by Ascending Order, sort by "email" then switch order variable so we can search by Decending order next click
+    if (this.state.sortEmailASC){
+      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.email > b.email) ? 1: -1).reverse();
 
-    newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+      this.setState({
+        orderedEmployees: newOrderedEmployees,
+        sortEmailASC: false,
+      });
+    }else{
+      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.email > b.email) ? 1: -1);
 
-    var placeholderText = "Search Employees by Email";
-    
+      this.setState({
+        orderedEmployees: newOrderedEmployees,
+        sortEmailASC: true,
+      });
+    }
+
     this.setState({
       orderedEmployees: newOrderedEmployees,
-      sortName: false,
-      sortPhone: false,
-      sortEmail: true,
-      sortDOB: false,
-      placeholder: placeholderText
     });
   }
   handleFormSubmitDOB = event => {
     event.preventDefault();
 
-    var newOrderedEmployees = [];
+    // If we are sorting names by Ascending Order, sort by "date of birth" then switch order variable so we can search by Decending order next click
+    if (this.state.sortDOBASC){
+      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.dateOfBirth > b.dateOfBirth) ? 1: -1).reverse();
 
-    newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+      this.setState({
+        orderedEmployees: newOrderedEmployees,
+        sortDOBASC: false,
+      });
+    }else{
+      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.dateOfBirth > b.dateOfBirth) ? 1: -1);
 
-    var placeholderText = "Search Employees by Date of Birth";
+      this.setState({
+        orderedEmployees: newOrderedEmployees,
+        sortDOBASC: true,
+      });
+    }
 
     this.setState({
       orderedEmployees: newOrderedEmployees,
-      sortName: false,
-      sortPhone: false,
-      sortEmail: false,
-      sortDOB: true,
-      placeholder: placeholderText
     });
     
   }
@@ -154,7 +157,6 @@ class App extends Component {
         <SearchBar
           search={this.state.search}
           value={this.state.search}
-          placeholder={this.state.placeholder}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
