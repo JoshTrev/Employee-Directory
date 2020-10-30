@@ -11,14 +11,11 @@ class App extends Component {
     search: "",
     sortOrderASC: true,
     orderedEmployees: [],
-    sortByName: true,
-    sortByPhone: false,
-    sortByEmail: false,
-    sortByDOB: false,
-    sortByNameASC: true,
-    sortByPhoneASC: false,
-    sortByEmailASC: false,
-    sortByDOBASC: false,
+    sortName: true,
+    sortPhone: false,
+    sortEmail: false,
+    sortDOB: false,
+    placeholder: "Search Employees by Name"
   }
 
   handleInputChange = event => {
@@ -32,8 +29,20 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    // Filter the employee list by the search term.
-    var filteredEmployees = this.state.employees.filter(person => person.name.includes(this.state.search));
+    var filteredEmployees = [];
+
+    if (this.state.sortName){
+      filteredEmployees = this.state.employees.filter(person => person.name.includes(this.state.search));
+    }
+    else if (this.state.sortPhone){
+      filteredEmployees = this.state.employees.filter(person => person.phone.includes(this.state.search));
+    }
+    else if (this.state.sortEmail){
+      filteredEmployees = this.state.employees.filter(person => person.email.includes(this.state.search));
+    }
+    else if (this.state.sortDOB){
+      filteredEmployees = this.state.employees.filter(person => person.dateOfBirth.includes(this.state.search));
+    }
 
     var orderedEmployees = [];
 
@@ -50,6 +59,11 @@ class App extends Component {
       console.log(orderedEmployees);
     }
 
+    console.log(this.state.sortName);
+    console.log(this.state.sortPhone);
+    console.log(this.state.sortEmail);
+    console.log(this.state.sortDOB);
+
     // Reset the search after the user has pressed the search button.
     this.setState({
       search: "",
@@ -63,29 +77,17 @@ class App extends Component {
 
     var newOrderedEmployees = [];
 
-    // If the chose category is already sortByName and sortByNameASC is true, sort results by ASC order.
-    if (this.state.sortByNameASC === true && this.state.sortByName === true && this.state.orderedEmployees !== "") {
-      console.log("Sort ASC");
-      newOrderedEmployees = this.state.orderedEmployees.sort();
-      this.setState({
-        sortByNameASC: false
-      });
-    }
-    // If the chose category is already sortByName and sortByNameASC is false, sort results by DES order.
-    if (this.state.sortByNameASC === false && this.state.sortByName === true && this.state.orderedEmployees !== "") {
-      console.log("Sort DES");
-      newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
-      this.setState({
-        sortByNameASC: true
-      });
-    }
+    newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+
+    var placeholderText = "Search Employees by Name";
 
     this.setState({
-      sortByName: true,
-      sortByPhone: false,
-      sortByEmail: false,
-      sortByDOB: false,
-      orderedEmployees: newOrderedEmployees
+      orderedEmployees: newOrderedEmployees,
+      sortName: true,
+      sortPhone: false,
+      sortEmail: false,
+      sortDOB: false,
+      placeholder: placeholderText
     });
   }
   handleFormSubmitPhone = event => {
@@ -93,90 +95,55 @@ class App extends Component {
 
     var newOrderedEmployees = [];
 
-    // If the chose category is already sortByPhone and sortByPhoneASC is true, sort results by ASC order.
-    if (this.state.sortByPhoneASC === true && this.state.sortByPhone === true && this.state.orderedEmployees !== "") {
-      console.log("Sort ASC");
-      newOrderedEmployees = this.state.orderedEmployees.sort();
-      this.setState({
-        sortByPhoneASC: false
-      });
-    }
-    // If the chose category is already sortByPhone and sortByPhoneASC is false, sort results by DES order.
-    if (this.state.sortByPhoneASC === false && this.state.sortByPhone === true && this.state.orderedEmployees !== "") {
-      console.log("Sort DES");
-      newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
-      this.setState({
-        sortByPhoneASC: true
-      });
-    }
+    newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+
+    var placeholderText = "Search Employees by Phone Number";
 
     this.setState({
-      sortByName: false,
-      sortByPhone: true,
-      sortByEmail: false,
-      sortByDOB: false,
-      orderedEmployees: newOrderedEmployees
+      orderedEmployees: newOrderedEmployees,
+      sortName: false,
+      sortPhone: true,
+      sortEmail: false,
+      sortDOB: false,
+      placeholder: placeholderText
     });
   }
   handleFormSubmitEmail = event => {
     event.preventDefault();
-    
+
     var newOrderedEmployees = [];
 
-    // If the chose category is already sortByEmail and sortByEmailASC is true, sort results by ASC order.
-    if (this.state.sortByEmailASC === true && this.state.sortByEmail === true && this.state.orderedEmployees !== "") {
-      console.log("Sort ASC");
-      newOrderedEmployees = this.state.orderedEmployees.sort();
-      this.setState({
-        sortByEmailASC: false
-      });
-    }
-    // If the chose category is already sortByEmail and sortByEmailASC is false, sort results by DES order.
-    if (this.state.sortByEmailASC === false && this.state.sortByEmail === true && this.state.orderedEmployees !== "") {
-      console.log("Sort DES");
-      newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
-      this.setState({
-        sortByEmailASC: true
-      });
-    }
+    newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
 
+    var placeholderText = "Search Employees by Email";
+    
     this.setState({
-      sortByName: false,
-      sortByPhone: false,
-      sortByEmail: true,
-      sortByDOB: false,
-      orderedEmployees: newOrderedEmployees
+      orderedEmployees: newOrderedEmployees,
+      sortName: false,
+      sortPhone: false,
+      sortEmail: true,
+      sortDOB: false,
+      placeholder: placeholderText
     });
   }
   handleFormSubmitDOB = event => {
     event.preventDefault();
-    
+
     var newOrderedEmployees = [];
 
-    // If the chose category is already sortByDOB and sortByDOBASC is true, sort results by ASC order.
-    if (this.state.sortByDOBASC === true && this.state.sortByDOB === true && this.state.orderedEmployees !== "") {
-      console.log("Sort ASC");
-      newOrderedEmployees = this.state.orderedEmployees.sort();
-      this.setState({
-        sortByDOBASC: false
-      });
-    }
-    // If the chose category is already sortByDOB and sortByDOBASC is false, sort results by DES order.
-    if (this.state.sortByDOBASC === false && this.state.sortByDOB === true && this.state.orderedEmployees !== "") {
-      console.log("Sort DES");
-      newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
-      this.setState({
-        sortByDOBASC: true
-      });
-    }
+    newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+
+    var placeholderText = "Search Employees by Date of Birth";
 
     this.setState({
-      sortByName: false,
-      sortByPhone: false,
-      sortByEmail: false,
-      sortByDOB: true,
-      orderedEmployees: newOrderedEmployees
+      orderedEmployees: newOrderedEmployees,
+      sortName: false,
+      sortPhone: false,
+      sortEmail: false,
+      sortDOB: true,
+      placeholder: placeholderText
     });
+    
   }
 
   render() {
@@ -187,6 +154,7 @@ class App extends Component {
         <SearchBar
           search={this.state.search}
           value={this.state.search}
+          placeholder={this.state.placeholder}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
