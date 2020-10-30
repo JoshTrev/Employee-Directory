@@ -2,9 +2,10 @@ import React from "react";
 import "./SearchBar.css";
 
 function SearchBar(props) {
-	return (
-		<>
-		<input
+  return (
+    <div id="searchDiv">
+      <div id="searchBar">
+        <input
           onChange={props.handleInputChange}
           value={props.search}
           name="search"
@@ -13,11 +14,14 @@ function SearchBar(props) {
           placeholder="Search Employees"
           id="search"
         />
-		<button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
+      </div>
+      <div id="searchButton">
+        <button onClick={props.handleFormSubmit} className="btn btn-primary mt-3">
           Search
         </button>
-		</>
-	);
+      </div>
+    </div>
+  );
 }
 
 export default SearchBar;

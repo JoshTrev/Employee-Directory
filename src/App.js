@@ -20,14 +20,6 @@ class App extends Component {
   handleInputChange = event => {
     const { name, value } = event.target;
 
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-
     // Searching all employees by name
     var filteredEmployeesName = this.state.employees.filter(person => person.name.includes(this.state.search));
 
@@ -41,12 +33,20 @@ class App extends Component {
     var filteredEmployeesDOB = this.state.employees.filter(person => person.dateOfBirth.includes(this.state.search));
 
     // Adding up all the searches together using "new Set" to avoid duplications
-    var newArrayOfEmployees = [...new Set([...filteredEmployeesName,...filteredEmployeesPhone,...filteredEmployeesEmail,...filteredEmployeesDOB])]
+    var newArrayOfEmployees = [...new Set([...filteredEmployeesName, ...filteredEmployeesPhone, ...filteredEmployeesEmail, ...filteredEmployeesDOB])]
+
+    this.setState({
+      [name]: value,
+      orderedEmployees: newArrayOfEmployees
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
 
     // Reset the search after the user has pressed the search button.
     this.setState({
       search: "",
-      orderedEmployees: newArrayOfEmployees
     });
   }
 
@@ -55,15 +55,15 @@ class App extends Component {
     event.preventDefault();
 
     // If we are sorting names by Ascending Order, sort by "name" then switch order variable so we can search by Decending order next click
-    if (this.state.sortNameASC){
-      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.name > b.name) ? 1: -1).reverse();
+    if (this.state.sortNameASC) {
+      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.name > b.name) ? 1 : -1).reverse();
 
       this.setState({
         orderedEmployees: newOrderedEmployees,
         sortNameASC: false,
       });
-    }else{
-      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.name > b.name) ? 1: -1);
+    } else {
+      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.name > b.name) ? 1 : -1);
 
       this.setState({
         orderedEmployees: newOrderedEmployees,
@@ -79,15 +79,15 @@ class App extends Component {
     event.preventDefault();
 
     // If we are sorting names by Ascending Order, sort by "phone" then switch order variable so we can search by Decending order next click
-    if (this.state.sortPhoneASC){
-      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.phone > b.phone) ? 1: -1).reverse();
+    if (this.state.sortPhoneASC) {
+      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.phone > b.phone) ? 1 : -1).reverse();
 
       this.setState({
         orderedEmployees: newOrderedEmployees,
         sortPhoneASC: false,
       });
-    }else{
-      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.phone > b.phone) ? 1: -1);
+    } else {
+      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.phone > b.phone) ? 1 : -1);
 
       this.setState({
         orderedEmployees: newOrderedEmployees,
@@ -103,15 +103,15 @@ class App extends Component {
     event.preventDefault();
 
     // If we are sorting names by Ascending Order, sort by "email" then switch order variable so we can search by Decending order next click
-    if (this.state.sortEmailASC){
-      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.email > b.email) ? 1: -1).reverse();
+    if (this.state.sortEmailASC) {
+      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.email > b.email) ? 1 : -1).reverse();
 
       this.setState({
         orderedEmployees: newOrderedEmployees,
         sortEmailASC: false,
       });
-    }else{
-      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.email > b.email) ? 1: -1);
+    } else {
+      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.email > b.email) ? 1 : -1);
 
       this.setState({
         orderedEmployees: newOrderedEmployees,
@@ -127,15 +127,15 @@ class App extends Component {
     event.preventDefault();
 
     // If we are sorting names by Ascending Order, sort by "date of birth" then switch order variable so we can search by Decending order next click
-    if (this.state.sortDOBASC){
-      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.dateOfBirth > b.dateOfBirth) ? 1: -1).reverse();
+    if (this.state.sortDOBASC) {
+      var newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.dateOfBirth > b.dateOfBirth) ? 1 : -1).reverse();
 
       this.setState({
         orderedEmployees: newOrderedEmployees,
         sortDOBASC: false,
       });
-    }else{
-      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.dateOfBirth > b.dateOfBirth) ? 1: -1);
+    } else {
+      newOrderedEmployees = this.state.orderedEmployees.sort((a, b) => (a.dateOfBirth > b.dateOfBirth) ? 1 : -1);
 
       this.setState({
         orderedEmployees: newOrderedEmployees,
@@ -146,13 +146,12 @@ class App extends Component {
     this.setState({
       orderedEmployees: newOrderedEmployees,
     });
-    
+
   }
 
   render() {
     return (
       <>
-        <h1>Hi!</h1>
         <Header />
         <SearchBar
           search={this.state.search}

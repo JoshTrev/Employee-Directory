@@ -7,35 +7,35 @@ img {
     clear: left;
     font-size: 12pt;
     text-align: center;
-    min-width: 20%;
+    width: 20%;
     float: left;
     height: 100px;
 }
 #name {
     font-size: 12pt;
     text-align: center;
-    min-width: 20%;
+    width: 20%;
     float: left;
     height: 100px;
 }
 #phone {
     font-size: 12pt;
     text-align: center;
-    min-width: 20%;
+    width: 20%;
     float: left;
     height: 100px;
 }
 #email {
     font-size: 12pt;
     text-align: center;
-    min-width: 20%;
+    width: 20%;
     float: left;
     height: 100px;
 }
 #dateOfBirth {
     font-size: 12pt;
     text-align: center;
-    min-width: 20%;
+    width: 20%;
     float: left;
     height: 100px;
 }

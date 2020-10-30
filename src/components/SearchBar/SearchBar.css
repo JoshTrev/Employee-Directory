@@ -1,0 +1,17 @@
+#searchDiv{
+    background-color: dimgrey;
+    height: 4.5rem;
+}
+
+#searchBar{
+    float: left;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 30%;
+}
+
+#searchButton{
+    float: left;
+    
+}

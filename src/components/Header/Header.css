@@ -1,0 +1,19 @@
+#mainHead{
+    padding-top: 1rem;
+    height: 120px;
+    background-color: #001F3F;
+}
+
+#line{
+    height: 5px;
+    background-color: aqua;
+}
+
+h1{
+    text-align: center;
+    color: whitesmoke;
+}
+p{
+    text-align: center;
+    color: lightslategrey;
+}
