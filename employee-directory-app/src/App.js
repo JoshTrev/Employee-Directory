@@ -9,8 +9,16 @@ class App extends Component {
   state = {
     employees: employees,
     search: "",
-    sortOrder: "ASC",
-    orderedEmployees: []
+    sortOrderASC: true,
+    orderedEmployees: [],
+    sortByName: true,
+    sortByPhone: false,
+    sortByEmail: false,
+    sortByDOB: false,
+    sortByNameASC: true,
+    sortByPhoneASC: false,
+    sortByEmailASC: false,
+    sortByDOBASC: false,
   }
 
   handleInputChange = event => {
@@ -30,13 +38,13 @@ class App extends Component {
     var orderedEmployees = [];
 
     // Sort employees alphabetically by Ascending order
-    if (this.state.sortOrder === "ASC") {
+    if (this.state.sortOrderASC === true) {
       orderedEmployees = filteredEmployees.sort();
       console.log("filteredEmployeesASC");
       console.log(orderedEmployees);
     }
     // Sort employees alphabetically by Descending order
-    else if (this.state.sortOrder === "DES") {
+    else if (this.state.sortOrderASC === false) {
       orderedEmployees = filteredEmployees.sort().reverse();
       console.log("filteredEmployeesDES");
       console.log(orderedEmployees);
@@ -46,6 +54,128 @@ class App extends Component {
     this.setState({
       search: "",
       orderedEmployees: orderedEmployees
+    });
+  }
+
+  // Click to select search category. Also clicking again will toggle order.
+  handleFormSubmitName = event => {
+    event.preventDefault();
+
+    var newOrderedEmployees = [];
+
+    // If the chose category is already sortByName and sortByNameASC is true, sort results by ASC order.
+    if (this.state.sortByNameASC === true && this.state.sortByName === true && this.state.orderedEmployees !== "") {
+      console.log("Sort ASC");
+      newOrderedEmployees = this.state.orderedEmployees.sort();
+      this.setState({
+        sortByNameASC: false
+      });
+    }
+    // If the chose category is already sortByName and sortByNameASC is false, sort results by DES order.
+    if (this.state.sortByNameASC === false && this.state.sortByName === true && this.state.orderedEmployees !== "") {
+      console.log("Sort DES");
+      newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+      this.setState({
+        sortByNameASC: true
+      });
+    }
+
+    this.setState({
+      sortByName: true,
+      sortByPhone: false,
+      sortByEmail: false,
+      sortByDOB: false,
+      orderedEmployees: newOrderedEmployees
+    });
+  }
+  handleFormSubmitPhone = event => {
+    event.preventDefault();
+
+    var newOrderedEmployees = [];
+
+    // If the chose category is already sortByPhone and sortByPhoneASC is true, sort results by ASC order.
+    if (this.state.sortByPhoneASC === true && this.state.sortByPhone === true && this.state.orderedEmployees !== "") {
+      console.log("Sort ASC");
+      newOrderedEmployees = this.state.orderedEmployees.sort();
+      this.setState({
+        sortByPhoneASC: false
+      });
+    }
+    // If the chose category is already sortByPhone and sortByPhoneASC is false, sort results by DES order.
+    if (this.state.sortByPhoneASC === false && this.state.sortByPhone === true && this.state.orderedEmployees !== "") {
+      console.log("Sort DES");
+      newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+      this.setState({
+        sortByPhoneASC: true
+      });
+    }
+
+    this.setState({
+      sortByName: false,
+      sortByPhone: true,
+      sortByEmail: false,
+      sortByDOB: false,
+      orderedEmployees: newOrderedEmployees
+    });
+  }
+  handleFormSubmitEmail = event => {
+    event.preventDefault();
+    
+    var newOrderedEmployees = [];
+
+    // If the chose category is already sortByEmail and sortByEmailASC is true, sort results by ASC order.
+    if (this.state.sortByEmailASC === true && this.state.sortByEmail === true && this.state.orderedEmployees !== "") {
+      console.log("Sort ASC");
+      newOrderedEmployees = this.state.orderedEmployees.sort();
+      this.setState({
+        sortByEmailASC: false
+      });
+    }
+    // If the chose category is already sortByEmail and sortByEmailASC is false, sort results by DES order.
+    if (this.state.sortByEmailASC === false && this.state.sortByEmail === true && this.state.orderedEmployees !== "") {
+      console.log("Sort DES");
+      newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+      this.setState({
+        sortByEmailASC: true
+      });
+    }
+
+    this.setState({
+      sortByName: false,
+      sortByPhone: false,
+      sortByEmail: true,
+      sortByDOB: false,
+      orderedEmployees: newOrderedEmployees
+    });
+  }
+  handleFormSubmitDOB = event => {
+    event.preventDefault();
+    
+    var newOrderedEmployees = [];
+
+    // If the chose category is already sortByDOB and sortByDOBASC is true, sort results by ASC order.
+    if (this.state.sortByDOBASC === true && this.state.sortByDOB === true && this.state.orderedEmployees !== "") {
+      console.log("Sort ASC");
+      newOrderedEmployees = this.state.orderedEmployees.sort();
+      this.setState({
+        sortByDOBASC: false
+      });
+    }
+    // If the chose category is already sortByDOB and sortByDOBASC is false, sort results by DES order.
+    if (this.state.sortByDOBASC === false && this.state.sortByDOB === true && this.state.orderedEmployees !== "") {
+      console.log("Sort DES");
+      newOrderedEmployees = this.state.orderedEmployees.sort().reverse();
+      this.setState({
+        sortByDOBASC: true
+      });
+    }
+
+    this.setState({
+      sortByName: false,
+      sortByPhone: false,
+      sortByEmail: false,
+      sortByDOB: true,
+      orderedEmployees: newOrderedEmployees
     });
   }
 
@@ -60,7 +190,12 @@ class App extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <FormLabel />
+        <FormLabel
+          handleFormSubmitName={this.handleFormSubmitName}
+          handleFormSubmitPhone={this.handleFormSubmitPhone}
+          handleFormSubmitEmail={this.handleFormSubmitEmail}
+          handleFormSubmitDOB={this.handleFormSubmitDOB}
+        />
         {this.state.orderedEmployees.map(person =>
           <EmployeeCard
             key={person.id}

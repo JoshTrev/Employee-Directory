@@ -1,0 +1,30 @@
+#imgColumn {
+    font-size: 24pt;
+    text-align: center;
+    min-width: 20%;
+    float: left;
+}
+#nameColumn {
+    font-size: 24pt;
+    text-align: center;
+    min-width: 20%;
+    float: left;
+}
+#phoneColumn {
+    font-size: 24pt;
+    text-align: center;
+    min-width: 20%;
+    float: left;
+}
+#emailColumn {
+    font-size: 24pt;
+    text-align: center;
+    min-width: 20%;
+    float: left;
+}
+#dateOfBirthColumn {
+    font-size: 24pt;
+    text-align: center;
+    min-width: 20%;
+    float: left;
+}

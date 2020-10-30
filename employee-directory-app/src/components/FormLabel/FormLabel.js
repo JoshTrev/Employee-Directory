@@ -1,11 +1,25 @@
 import React from "react";
 import "./FormLabel.css";
 
-function FormLabel() {
+function FormLabel(props) {
 	return (
-		<h1>
-			<p>FormLabel Test!</p>
-		</h1>
+		<div>
+			<div id="imgColumn" className="border">
+				Img Goes Here
+			</div>
+			<div onClick={props.handleFormSubmitName} id="nameColumn" className="border">
+				Name
+			</div>
+			<div onClick={props.handleFormSubmitPhone} id="phoneColumn" className="border">
+				Phone Number
+			</div>
+			<div onClick={props.handleFormSubmitEmail} id="emailColumn" className="border">
+				Email
+			</div>
+			<div onClick={props.handleFormSubmitDOB} id="dateOfBirthColumn" className="border">
+				DOB
+			</div>
+		</div>
 	);
 }
 

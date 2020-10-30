@@ -1,21 +1,31 @@
 #img {
     clear: left;
-    font-size: 2rem;
+    font-size: 12pt;
+    text-align: center;
+    min-width: 20%;
     float: left;
 }
 #name {
-    font-size: 2rem;
+    font-size: 12pt;
+    text-align: center;
+    min-width: 20%;
     float: left;
 }
 #phone {
-    font-size: 2rem;
+    font-size: 12pt;
+    text-align: center;
+    min-width: 20%;
     float: left;
 }
 #email {
-    font-size: 2rem;
+    font-size: 12pt;
+    text-align: center;
+    min-width: 20%;
     float: left;
 }
 #dateOfBirth {
-    font-size: 2rem;
+    font-size: 12pt;
+    text-align: center;
+    min-width: 20%;
     float: left;
 }
