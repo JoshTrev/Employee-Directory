@@ -17,28 +17,34 @@ class App extends Component {
     sortDOBASC: true
   }
 
+  componentDidMount() {
+    this.setState({
+      orderedEmployees: employees
+    });
+  }
+
   handleInputChange = event => {
-    const { name, value } = event.target;
 
     // Searching all employees by name
-    var filteredEmployeesName = this.state.employees.filter(person => person.name.includes(this.state.search));
+    let filteredEmployeesName = this.state.employees.filter(person => person.name.includes(event.target.value));
 
     // Searching all employees by phone number
-    var filteredEmployeesPhone = this.state.employees.filter(person => person.phone.includes(this.state.search));
+    let filteredEmployeesPhone = this.state.employees.filter(person => person.phone.includes(event.target.value));
 
     // Searching all employees by email
-    var filteredEmployeesEmail = this.state.employees.filter(person => person.email.includes(this.state.search));
+    let filteredEmployeesEmail = this.state.employees.filter(person => person.email.includes(event.target.value));
 
     // Searching all employees by date of birth
-    var filteredEmployeesDOB = this.state.employees.filter(person => person.dateOfBirth.includes(this.state.search));
+    let filteredEmployeesDOB = this.state.employees.filter(person => person.dateOfBirth.includes(event.target.value));
 
     // Adding up all the searches together using "new Set" to avoid duplications
-    var newArrayOfEmployees = [...new Set([...filteredEmployeesName, ...filteredEmployeesPhone, ...filteredEmployeesEmail, ...filteredEmployeesDOB])]
+    let newArrayOfEmployees = [...new Set([...filteredEmployeesName, ...filteredEmployeesPhone, ...filteredEmployeesEmail, ...filteredEmployeesDOB])]
 
     this.setState({
-      [name]: value,
+      search: event.target.value,
       orderedEmployees: newArrayOfEmployees
     });
+
   };
 
   handleFormSubmit = event => {

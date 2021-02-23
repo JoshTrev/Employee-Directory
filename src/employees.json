@@ -2,7 +2,7 @@
     {
       "id": 1,
       "name": "SpongeBob SquarePants",
-      "image": "./assets/img/SpongeBobSquarePants.png",
+      "image": "SpongeBobSquarePants",
       "phone": "494-292-1516",
       "email": "SpongeBob@email.com",
       "dateOfBirth": "04/24/2020"
@@ -10,7 +10,7 @@
     {
       "id": 2,
       "name": "Patrick Star",
-      "image": "./assets/img/PatrickStar.png",
+      "image": "PatrickStar",
       "phone": "602-512-2633",
       "email": "Patrick@email.com",
       "dateOfBirth": "04/24/2000"
@@ -18,7 +18,7 @@
     {
       "id": 3,
       "name": "Squidward Tenticles",
-      "image": "./assets/img/SquidwardTenticles.png",
+      "image": "SquidwardTenticles",
       "phone": "136-273-3556",
       "email": "Squidward@email.com",
       "dateOfBirth": "04/24/2000"
@@ -26,7 +26,7 @@
     {
       "id": 4,
       "name": "Mr. Krabs",
-      "image": "./assets/img/MrKrabs.png",
+      "image": "MrKrabs",
       "phone": "434-903-3100",
       "email": "MrKrabs@email.com",
       "dateOfBirth": "08/15/1980"
@@ -34,7 +34,7 @@
     {
       "id": 5,
       "name": "Sandy Cheeks",
-      "image": "./assets/img/SandyCheeks.png",
+      "image": "SandyCheeks",
       "phone": "121-622-6376",
       "email": "Sandy@email.com",
       "dateOfBirth": "11/19/1999"
@@ -42,7 +42,7 @@
     {
       "id": 6,
       "name": "Plankton",
-      "image": "./assets/img/Plankton.png",
+      "image": "Plankton",
       "phone": "525-262-6872",
       "email": "Plankton@email.com",
       "dateOfBirth": "06/08/1975"
@@ -50,7 +50,7 @@
     {
       "id": 7,
       "name": "Gary the Snail",
-      "image": "./assets/img/GaryTheSnail.png",
+      "image": "GaryTheSnail",
       "phone": "253-207-1279",
       "email": "GaryTheSnail@email.com",
       "dateOfBirth": "01/30/2014"
