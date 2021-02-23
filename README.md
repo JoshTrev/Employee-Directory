@@ -6,4 +6,4 @@ This directory allows the user to search employees from a file named "employees.
 
 https://joshtrev.github.io/Employee-Directory/
 
-![Image of Application](\src\assets\img\EmployeeDirectory.png)
+![Image of Application](\EmployeeDirectory.png)

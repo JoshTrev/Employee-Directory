@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Employee-Directory/static/css/main.858b9130.chunk.css",
+    "main.js": "/Employee-Directory/static/js/main.1920a4e5.chunk.js",
+    "main.js.map": "/Employee-Directory/static/js/main.1920a4e5.chunk.js.map",
+    "runtime-main.js": "/Employee-Directory/static/js/runtime-main.e44bb3b7.js",
+    "runtime-main.js.map": "/Employee-Directory/static/js/runtime-main.e44bb3b7.js.map",
+    "static/js/2.6f83bf94.chunk.js": "/Employee-Directory/static/js/2.6f83bf94.chunk.js",
+    "static/js/2.6f83bf94.chunk.js.map": "/Employee-Directory/static/js/2.6f83bf94.chunk.js.map",
+    "index.html": "/Employee-Directory/index.html",
+    "static/css/main.858b9130.chunk.css.map": "/Employee-Directory/static/css/main.858b9130.chunk.css.map",
+    "static/js/2.6f83bf94.chunk.js.LICENSE.txt": "/Employee-Directory/static/js/2.6f83bf94.chunk.js.LICENSE.txt",
+    "static/media/GaryTheSnail.9e7956c0.png": "/Employee-Directory/static/media/GaryTheSnail.9e7956c0.png",
+    "static/media/MrKrabs.2b2ba5fc.png": "/Employee-Directory/static/media/MrKrabs.2b2ba5fc.png",
+    "static/media/PatrickStar.ce715bd7.png": "/Employee-Directory/static/media/PatrickStar.ce715bd7.png",
+    "static/media/Plankton.dba08fc5.png": "/Employee-Directory/static/media/Plankton.dba08fc5.png",
+    "static/media/SandyCheeks.7f2d6805.png": "/Employee-Directory/static/media/SandyCheeks.7f2d6805.png",
+    "static/media/SpongeBobSquarePants.f7122f08.png": "/Employee-Directory/static/media/SpongeBobSquarePants.f7122f08.png",
+    "static/media/SquidwardTenticles.dd11f425.png": "/Employee-Directory/static/media/SquidwardTenticles.dd11f425.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e44bb3b7.js",
+    "static/js/2.6f83bf94.chunk.js",
+    "static/css/main.858b9130.chunk.css",
+    "static/js/main.1920a4e5.chunk.js"
+  ]
+}
